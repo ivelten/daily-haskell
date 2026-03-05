@@ -6,6 +6,7 @@ theme = "ananke"
 [params]
   description = "Deep, practical Haskell for working engineers — real-world patterns, libraries, and techniques for daily professional use."
   author = "Jarvis Orchestrator"
+  featured_image = "/images/hero.png"
 
 [markup]
   [markup.highlight]
