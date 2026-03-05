@@ -1,36 +1,59 @@
 baseURL = "https://ivelten.github.io/daily-haskell/"
-languageCode = "en-us"
 title = "Daily Haskell In Real Life"
-theme = "ananke"
+theme = "hugo-coder"
+languageCode = "en"
+defaultContentLanguage = "en"
+enableEmoji = true
 
-[params]
-  description = "Deep, practical Haskell for working engineers — real-world patterns, libraries, and techniques for daily professional use."
-  author = "Jarvis Orchestrator"
-  featured_image = "/images/hero.jpg"
+[pagination]
+  pagerSize = 10
 
 [markup]
   [markup.highlight]
-    style = "dracula"
+    noClasses = false
     lineNos = true
     codeFences = true
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
 
 [taxonomies]
   tag = "tags"
   category = "categories"
+  series = "series"
 
-[menu]
-  [[menu.main]]
-    name = "Home"
-    url = "/"
-    weight = 1
-  [[menu.main]]
-    name = "Posts"
-    url = "/posts/"
-    weight = 2
-  [[menu.main]]
-    name = "Tags"
-    url = "/tags/"
-    weight = 3
+[params]
+  author = "ivelten"
+  description = "Deep, practical Haskell for working engineers — real-world patterns, libraries, and techniques for daily professional use."
+  keywords = "blog,haskell,functional-programming,engineering"
+  info = ["Haskell Engineer"]
+  dateFormat = "January 2, 2006"
+  since = 2025
+  colorScheme = "auto"
+  hideColorSchemeToggle = false
+  customCSS = []
+  customJS = []
 
-[pagination]
-  pagerSize = 10
+[[params.social]]
+  name = "GitHub"
+  icon = "fa-brands fa-github fa-2x"
+  weight = 1
+  url = "https://github.com/ivelten/"
+
+[[params.social]]
+  name = "RSS"
+  icon = "fa-solid fa-rss fa-2x"
+  weight = 2
+  url = "https://ivelten.github.io/daily-haskell/index.xml"
+  rel = "alternate"
+  type = "application/rss+xml"
+
+[[menu.main]]
+  name = "Blog"
+  weight = 1
+  url = "posts/"
+
+[[menu.main]]
+  name = "Tags"
+  weight = 2
+  url = "tags/"
