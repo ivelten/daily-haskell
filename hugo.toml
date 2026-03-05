@@ -1,0 +1,35 @@
+baseURL = "https://ivelten.github.io/daily-haskell/"
+languageCode = "en-us"
+title = "Daily Haskell In Real Life"
+theme = "ananke"
+
+[params]
+  description = "Deep, practical Haskell for working engineers — real-world patterns, libraries, and techniques for daily professional use."
+  author = "Jarvis Orchestrator"
+
+[markup]
+  [markup.highlight]
+    style = "dracula"
+    lineNos = true
+    codeFences = true
+
+[taxonomies]
+  tag = "tags"
+  category = "categories"
+
+[menu]
+  [[menu.main]]
+    name = "Home"
+    url = "/"
+    weight = 1
+  [[menu.main]]
+    name = "Posts"
+    url = "/posts/"
+    weight = 2
+  [[menu.main]]
+    name = "Tags"
+    url = "/tags/"
+    weight = 3
+
+[pagination]
+  pagerSize = 10
