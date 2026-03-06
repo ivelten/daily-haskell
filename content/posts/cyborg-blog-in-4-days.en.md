@@ -166,4 +166,4 @@ The second is **infrastructure**. Right now, Jarvis runs locally. That means the
 
 Once that is in place, the pipeline runs without me having to think about it. Jarvis discovers topics, queues drafts, and pings me on Discord when a review is ready. I approve or give feedback from my phone. The post goes live. That is the goal.
 
-This blog exists to document that journey. [Jarvis](https://github.com/ivelten/jarvis) exists as the infrastructure that keeps it running. I am genuinely excited for what comes next.
+This [blog](https://github.com/ivelten/daily-haskell) exists to document that journey. [Jarvis](https://github.com/ivelten/jarvis) exists as the infrastructure that keeps it running. I am genuinely excited for what comes next.

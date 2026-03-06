@@ -166,4 +166,4 @@ A segunda é a **infraestrutura**. Por enquanto, o Jarvis roda localmente. Isso 
 
 Com isso em funcionamento, a pipeline roda sem que eu precise pensar nela. O Jarvis descobre tópicos, enfileira rascunhos e me avisa no Discord quando uma revisão está pronta. Eu aprovo ou dô feedback pelo celular. O post vai ao ar. Esse é o objetivo.
 
-Este blog existe para documentar essa jornada. O [Jarvis](https://github.com/ivelten/jarvis) existe como a infraestrutura que o mantém funcionando. Estou genuinamente animado com o que vem por aí.
+Este [blog](https://github.com/ivelten/daily-haskell) existe para documentar essa jornada. O [Jarvis](https://github.com/ivelten/jarvis) existe como a infraestrutura que o mantém funcionando. Estou genuinamente animado com o que vem por aí.
