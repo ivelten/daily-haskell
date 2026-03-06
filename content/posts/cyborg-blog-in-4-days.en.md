@@ -142,7 +142,7 @@ This is the discipline that makes AI-assisted development trustworthy rather tha
 
 ## What I Learned
 
-Four days. One Haskell application. One Hugo blog. One production-grade publishing pipeline.
+Four days. One Haskell application. One Hugo blog. One working MVP.
 
 The most important lesson is that the cyborg model is not a compromise — it is a genuine improvement over both fully manual and fully automated alternatives. I get the efficiency of AI drafting without sacrificing editorial judgment. The system scales with my attention: if I am busy, drafts queue up; when I am ready, I review and approve from Discord in minutes.
 
@@ -156,7 +156,7 @@ The third lesson is about Haskell specifically. The discipline that the language
 
 ## Next Steps
 
-The system works, but it is not finished. There are two areas I want to improve before I consider this pipeline truly production-ready.
+The MVP is ready. But it is not finished — there are two areas I want to refine.
 
 The first is the **review process**. The current Discord bot handles the happy path well, but the edge cases of reviewer interaction — partially typed approval phrases, rapid emoji reactions, concurrent feedback in the thread, unexpected message formats — have not all been deliberately exercised. I want to harden the bot's event handling with more targeted tests and intentional chaos testing of the Discord interaction layer before this runs unattended.
 

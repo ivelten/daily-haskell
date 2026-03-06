@@ -142,7 +142,7 @@ Essa é a disciplina que torna o desenvolvimento assistido por IA confiável em 
 
 ## O Que Aprendi
 
-Quatro dias. Uma aplicação Haskell. Um blog Hugo. Uma pipeline de publicação pronta para produção.
+Quatro dias. Uma aplicação Haskell. Um blog Hugo. Um MVP funcional.
 
 A lição mais importante é que o modelo cyborg não é um compromisso — é uma melhoria genuína em relação às alternativas totalmente manuais e totalmente automatizadas. Obtenho a eficiência dos rascunhos de IA sem abrir mão do julgamento editorial. O sistema escala com minha atenção: se estou ocupado, os rascunhos são enfileirados; quando estou disponível, reviso e aprovo pelo Discord em minutos.
 
@@ -156,7 +156,7 @@ A terceira lição é sobre Haskell especificamente. A disciplina que a linguage
 
 ## Próximos Passos
 
-O sistema funciona, mas não está terminado. Há duas áreas que quero melhorar antes de considerar esta pipeline verdadeiramente pronta para produção.
+O MVP está pronto. Mas ainda não está terminado — há duas áreas que quero refinar.
 
 A primeira é o **processo de revisão**. O bot do Discord atual lida bem com o caminho feliz, mas os casos extremos da interação do revisor — frases de aprovação parcialmente digitadas, reações rápidas de emoji, feedback concorrente na thread, formatos de mensagem inesperados — ainda não foram todos deliberadamente exercitados. Quero fortalecer o tratamento de eventos do bot com testes mais direcionados e testes de caos intencional da camada de interação com o Discord antes de deixar tudo rodar sem supervisão.
 
