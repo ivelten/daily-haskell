@@ -132,7 +132,9 @@ Um aviso necessário: não estou afirmando que Haskell é a única linguagem que
 
 Um ponto sobre o qual quero ser explícito: cada funcionalidade gerada com assistência de IA foi testada com testes unitários antes de ser considerada concluída. Não como uma reflexão tardia — como a condição para avançar para a próxima etapa.
 
-A suite de testes do Jarvis não requer um banco de dados ativo, uma conexão com o Discord ou uma conta no Gemini. Todas as dependências externas são simuladas em processo. Isso significa que os testes rodam rápido, rodam sempre e dão confiança genuína de que uma nova função gerada pela IA não quebra silenciosamente algo que já estava funcionando.
+A suite de testes do Jarvis tem duas camadas. Os testes unitários — cobrindo lógica pura como geração de slugs, utilitários de texto e etapas de orquestração da pipeline — simulam todas as dependências externas em processo: sem Discord, sem Gemini, sem API do GitHub. Esses rodam rápido e rodam em qualquer lugar. Os testes de integração, porém, exercitam o banco de dados real: eles testam as migrações do esquema Persistent e a camada de banco contra uma instância real de PostgreSQL. Isso é intencional — migrações de banco de dados são exatamente o tipo de coisa que você não quer simular.
+
+Ambas as camadas estão integradas ao devcontainer. O ambiente de desenvolvimento é um [VS Code Dev Container](https://code.visualstudio.com/docs/devcontainers/containers) que sobe o container da aplicação junto com um sidecar PostgreSQL automaticamente via `docker-compose`. Uma vez dentro do container, GHC 9.6 e Cabal estão no `PATH`, o banco está rodando e `cabal test` simplesmente funciona. Sem configuração manual, sem variáveis de ambiente para ajustar no desenvolvimento local. Esta foi mais uma área onde a abordagem cyborg se pagou — toda a configuração do devcontainer também foi construída com o Copilot, e funciona de forma confiável.
 
 Serei honesto: minhas mensagens de commit durante esses quatro dias não são um modelo de clareza. Eu estava me movendo rapidamente, e a disciplina que apliquei ao código em si nem sempre chegou ao log de commits. Isso é algo que pretendo melhorar conforme o projeto amadurece. Mas a substância nunca esteve em dúvida — cada etapa foi revisada, cada novo módulo foi testado, e a pipeline foi executada de ponta a ponta antes de eu declarar qualquer coisa como concluída.
 
@@ -151,5 +153,15 @@ Acredito fortemente que este é o fluxo de trabalho ideal para o momento atual: 
 O que faz esse modelo funcionar é a disciplina que ele exige de *você*. Você não pode desligar. Precisa entender cada linha antes de fazer o commit. Precisa saber por que uma decisão de design foi tomada, porque será você quem a defenderá, estenderá e depurará daqui a seis meses. A IA dá a você alavancagem. A expertise é o que torna essa alavancagem segura.
 
 A terceira lição é sobre Haskell especificamente. A disciplina que a linguagem impõe — a explicitude, os tipos, a separação entre código puro e com efeitos — se traduziu diretamente em um sistema mais fácil de raciocinar, mais fácil de estender e mais difícil de quebrar acidentalmente. O prazo de quatro dias não teria sido possível sem as ferramentas de IA. Mas a confiabilidade do resultado é produto da linguagem.
+
+## Próximos Passos
+
+O sistema funciona, mas não está terminado. Há duas áreas que quero melhorar antes de considerar esta pipeline verdadeiramente pronta para produção.
+
+A primeira é o **processo de revisão**. O bot do Discord atual lida bem com o caminho feliz, mas os casos extremos da interação do revisor — frases de aprovação parcialmente digitadas, reações rápidas de emoji, feedback concorrente na thread, formatos de mensagem inesperados — ainda não foram todos deliberadamente exercitados. Quero fortalecer o tratamento de eventos do bot com testes mais direcionados e testes de caos intencional da camada de interação com o Discord antes de deixar tudo rodar sem supervisão.
+
+A segunda é a **infraestrutura**. Por enquanto, o Jarvis roda localmente. Isso significa que o worker de descoberta, o worker de rascunhos e o bot do Discord só estão vivos quando meu laptop está aberto. O próximo passo óbvio é implantá-lo em uma máquina persistente — uma instância pequena no [Hetzner Cloud](https://www.hetzner.com/cloud/) é o plano. A configuração é direta: um único VPS rodando Docker Compose com o executável do Jarvis e um container PostgreSQL, gerenciado com um serviço `systemd` simples ou uma política de restart do Compose. O Hetzner oferece boa relação custo-benefício para o caso de uso: custo baixo, infraestrutura europeia confiável e poder computacional suficiente para um orquestrador leve sempre ativo.
+
+Com isso em funcionamento, a pipeline roda sem que eu precise pensar nela. O Jarvis descobre tópicos, enfileira rascunhos e me avisa no Discord quando uma revisão está pronta. Eu aprovo ou dô feedback pelo celular. O post vai ao ar. Esse é o objetivo.
 
 Este blog existe para documentar essa jornada. O [Jarvis](https://github.com/ivelten/jarvis) existe como a infraestrutura que o mantém funcionando. Estou genuinamente animado com o que vem por aí.

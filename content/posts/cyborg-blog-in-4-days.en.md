@@ -132,7 +132,9 @@ A necessary disclaimer: I am not claiming Haskell is the only language worth usi
 
 One thing I want to be explicit about: every feature generated with AI assistance was unit tested before being considered done. Not as an afterthought — as the gate for moving on to the next step.
 
-The test suite for Jarvis does not require a live database, a Discord connection, or a Gemini account. All external dependencies are faked in-process. This means the tests run fast, run always, and give genuine confidence that a new AI-generated function does not silently break something that was already working.
+The test suite for Jarvis has two layers. The unit tests — covering pure logic like slug generation, text utilities, and pipeline orchestration steps — fake all external dependencies in-process: no Discord, no Gemini, no GitHub API. These run fast and run everywhere. The integration tests, however, do exercise the real database: they test the Persistent schema migrations and the database layer against an actual PostgreSQL instance. This is by design — database migrations are exactly the kind of thing you do not want to fake.
+
+Both layers are wired into the devcontainer. The development environment is a [VS Code Dev Container](https://code.visualstudio.com/docs/devcontainers/containers) that spins up the application container alongside a PostgreSQL sidecar automatically using `docker-compose`. Once inside the container, GHC 9.6 and Cabal are on the `PATH`, the database is running, and `cabal test` just works. No manual setup, no environment variables to configure for local development. This was another area where the cyborg approach paid off — the entire devcontainer configuration was also built with Copilot, and it works reliably.
 
 I will be honest: my commit messages during these four days are not a model of clarity. I was moving quickly, and the discipline I applied to the code itself did not always make it into the commit log. That is something I intend to improve as the project matures. But the substance was never in doubt — each step was reviewed, each new module was tested, and the pipeline was run end-to-end before I declared anything finished.
 
@@ -151,5 +153,15 @@ I strongly believe this is the ideal workflow for right now: treat the AI agent 
 What makes this model work is the discipline it demands from *you*. You cannot switch off. You must understand every line before it is committed. You must know why a design decision was made, because you will be the one defending it, extending it, and debugging it six months from now. The AI gives you leverage. Expertise is what makes that leverage safe.
 
 The third lesson is about Haskell specifically. The discipline that the language imposes — the explicitness, the types, the separation of pure and effectful code — translated directly into a system that is easier to reason about, easier to extend, and harder to break accidentally. The four-day timeline would not have been possible without AI tooling. But the reliability of the result is a product of the language.
+
+## Next Steps
+
+The system works, but it is not finished. There are two areas I want to improve before I consider this pipeline truly production-ready.
+
+The first is the **review process**. The current Discord bot handles the happy path well, but the edge cases of reviewer interaction — partially typed approval phrases, rapid emoji reactions, concurrent feedback in the thread, unexpected message formats — have not all been deliberately exercised. I want to harden the bot's event handling with more targeted tests and intentional chaos testing of the Discord interaction layer before this runs unattended.
+
+The second is **infrastructure**. Right now, Jarvis runs locally. That means the discovery worker, the draft worker, and the Discord bot are only alive when my laptop is open. The obvious next step is to deploy it to a persistent machine — a small [Hetzner Cloud](https://www.hetzner.com/cloud/) instance is the plan. The setup is straightforward: a single VPS running Docker Compose with the Jarvis executable and a PostgreSQL container, managed with a simple `systemd` service or a Compose restart policy. Hetzner gives good value for the use case: low cost, reliable European infrastructure, and enough compute for a lightweight always-on orchestrator.
+
+Once that is in place, the pipeline runs without me having to think about it. Jarvis discovers topics, queues drafts, and pings me on Discord when a review is ready. I approve or give feedback from my phone. The post goes live. That is the goal.
 
 This blog exists to document that journey. [Jarvis](https://github.com/ivelten/jarvis) exists as the infrastructure that keeps it running. I am genuinely excited for what comes next.
