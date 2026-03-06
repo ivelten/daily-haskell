@@ -46,10 +46,12 @@
       }
     });
 
-    var footer = document.querySelector('footer.footer');
-    if (footer) {
-      footer.innerHTML = footer.innerHTML.replace('Powered by', 'Promovido por');
-    }
+    document.addEventListener('DOMContentLoaded', function () {
+      var footer = document.querySelector('footer.footer');
+      if (footer) {
+        footer.innerHTML = footer.innerHTML.replace('Powered by', 'Promovido por');
+      }
+    });
   })();
 </script>
 {{ end }}
