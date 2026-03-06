@@ -158,12 +158,14 @@ The four-day timeline would not have been possible without AI tooling. But the r
 
 ## Next Steps
 
-The MVP is ready. But it is not finished — there are two areas I want to refine.
+The MVP is ready. But it is not finished — there are three areas I want to refine.
 
-The first is the **review process**. The current Discord bot handles the happy path well, but the edge cases of reviewer interaction — partially typed approval phrases, rapid emoji reactions, concurrent feedback in the thread, unexpected message formats — have not all been deliberately exercised. I want to harden the bot's event handling with more targeted tests and intentional chaos testing of the Discord interaction layer before this runs unattended.
+The first is the **review process**. The current Discord bot handles the happy path well, but the edge cases of reviewer interaction — partially typed approval phrases, rapid emoji reactions, concurrent feedback in the thread, unexpected message formats — have not all been deliberately exercised. I want to harden the bot's event handling with more targeted tests and intentional chaos testing of the Discord interaction layer before this runs locally unattended.
 
 The second is **infrastructure**. Right now, Jarvis runs locally. That means the discovery worker, the draft worker, and the Discord bot are only alive when my laptop is open. The obvious next step is to deploy it to a persistent machine — a small [Hetzner Cloud](https://www.hetzner.com/cloud/) instance is the plan. The setup is straightforward: a single VPS running Docker Compose with the Jarvis executable and a PostgreSQL container, managed with a simple `systemd` service or a Compose restart policy. Hetzner gives good value for the use case: low cost, reliable European infrastructure, and enough compute for a lightweight always-on orchestrator.
 
 Once that is in place, the pipeline runs without me having to think about it. Jarvis discovers topics, queues drafts, and pings me on Discord when a review is ready. I approve or give feedback from my phone. The post goes live. That is the goal.
+
+The third is **observability**. Running a process unattended on a remote machine means I need visibility into what it is doing and when things go wrong. Right now there is no structured logging in place — errors surface only if I happen to be watching. I want to choose a logging library (the current candidates are `fast-logger` and `co-log`), wire it through the application, and have logs available in a way I can inspect from the outside. Without this, operating the deployed system blind is not an option.
 
 This [blog](https://github.com/ivelten/daily-haskell) exists to document that journey. [Jarvis](https://github.com/ivelten/jarvis) exists as the infrastructure that keeps it running. I am genuinely excited for what comes next.

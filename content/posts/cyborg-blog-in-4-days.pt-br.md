@@ -158,12 +158,14 @@ O prazo de quatro dias não teria sido possível sem as ferramentas de IA. Mas a
 
 ## Próximos Passos
 
-O MVP está pronto. Mas ainda não está terminado — há duas áreas que quero refinar.
+O MVP está pronto. Mas ainda não está terminado — há três áreas que quero refinar.
 
-A primeira é o **processo de revisão**. O bot do Discord atual lida bem com o caminho feliz, mas os casos extremos da interação do revisor — frases de aprovação parcialmente digitadas, reações rápidas de emoji, feedback concorrente na thread, formatos de mensagem inesperados — ainda não foram todos deliberadamente exercitados. Quero fortalecer o tratamento de eventos do bot com testes mais direcionados e testes de caos intencional da camada de interação com o Discord antes de deixar tudo rodar sem supervisão.
+A primeira é o **processo de revisão**. O bot do Discord atual lida bem com o caminho feliz, mas os casos extremos da interação do revisor — frases de aprovação parcialmente digitadas, reações rápidas de emoji, feedback concorrente na thread, formatos de mensagem inesperados — ainda não foram todos deliberadamente exercitados. Quero fortalecer o tratamento de eventos do bot com testes mais direcionados e testes de caos intencional da camada de interação com o Discord antes de deixar tudo rodar sem supervisão local.
 
 A segunda é a **infraestrutura**. Por enquanto, o Jarvis roda localmente. Isso significa que o worker de descoberta, o worker de rascunhos e o bot do Discord só estão vivos quando meu laptop está aberto. O próximo passo óbvio é implantá-lo em uma máquina persistente — uma instância pequena no [Hetzner Cloud](https://www.hetzner.com/cloud/) é o plano. A configuração é direta: um único VPS rodando Docker Compose com o executável do Jarvis e um container PostgreSQL, gerenciado com um serviço `systemd` simples ou uma política de restart do Compose. O Hetzner oferece boa relação custo-benefício para o caso de uso: custo baixo, infraestrutura europeia confiável e poder computacional suficiente para um orquestrador leve sempre ativo.
 
 Com isso em funcionamento, a pipeline roda sem que eu precise pensar nela. O Jarvis descobre tópicos, enfileira rascunhos e me avisa no Discord quando uma revisão está pronta. Eu aprovo ou dô feedback pelo celular. O post vai ao ar. Esse é o objetivo.
+
+A terceira é a **observabilidade**. Rodar um processo sem supervisão em uma máquina remota significa que preciso de visibilidade sobre o que ele está fazendo — e especialmente sobre quando algo dá errado. Por enquanto, não há logging estruturado no projeto: os erros aparecem apenas se eu estiver olhando na hora certa. Quero escolher uma biblioteca de logging (os candidatos atuais são `fast-logger` e `co-log`), integrá-la à aplicação, e ter logs acessíveis de fora. Sem isso, operar o sistema implantado no escuro não é uma opção.
 
 Este [blog](https://github.com/ivelten/daily-haskell) existe para documentar essa jornada. O [Jarvis](https://github.com/ivelten/jarvis) existe como a infraestrutura que o mantém funcionando. Estou genuinamente animado com o que vem por aí.
