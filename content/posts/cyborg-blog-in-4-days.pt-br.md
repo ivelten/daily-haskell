@@ -40,7 +40,7 @@ Cada módulo tem uma responsabilidade única e clara. A fronteira entre eles é 
 
 ## Dia 2: O Modelo de Concorrência
 
-A decisão de design mais interessante do projeto inteiro é o modelo de concorrência. Veja o núcleo do `Main.hs`:
+O modelo de concorrência é simples e eficiente. Veja o núcleo do `Main.hs`:
 
 ```haskell
 main :: IO ()

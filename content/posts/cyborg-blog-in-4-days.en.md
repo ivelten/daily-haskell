@@ -40,7 +40,7 @@ Each module has a single, clear responsibility. The boundary between them is a p
 
 ## Day 2: The Concurrency Model
 
-The most interesting design decision in the whole project is the concurrency model. Let me show you the core of `Main.hs`:
+The concurrency model is simple and efficient. Let me show you the core of `Main.hs`:
 
 ```haskell
 main :: IO ()
