@@ -35,6 +35,20 @@ enableEmoji = true
   customCSS = []
   customJS = []
 
+[params.giscus]
+  repo             = "ivelten/daily-haskell"
+  repoID           = "R_kgDORejQAg"
+  category         = "Announcements"
+  categoryID       = "DIC_kwDORejQAs4C3ygD"
+  mapping          = "pathname"
+  strict           = "0"
+  reactionsEnabled = "1"
+  emitMetadata     = "0"
+  inputPosition    = "bottom"
+  theme            = "preferred_color_scheme"
+  lang             = "pt"
+  loading          = "lazy"
+
 [[params.social]]
   name = "GitHub"
   icon = "fa-brands fa-github fa-2x"
