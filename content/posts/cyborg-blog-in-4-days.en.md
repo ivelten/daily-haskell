@@ -152,7 +152,9 @@ I strongly believe this is the ideal workflow for right now: treat the AI agent 
 
 What makes this model work is the discipline it demands from *you*. You cannot switch off. You must understand every line before it is committed. You must know why a design decision was made, because you will be the one defending it, extending it, and debugging it six months from now. The AI gives you leverage. Expertise is what makes that leverage safe.
 
-The third lesson is about Haskell specifically. The discipline that the language imposes — the explicitness, the types, the separation of pure and effectful code — translated directly into a system that is easier to reason about, easier to extend, and harder to break accidentally. The four-day timeline would not have been possible without AI tooling. But the reliability of the result is a product of the language.
+The third lesson is about Haskell specifically. The discipline that the language imposes — the explicitness, the types, the separation of pure and effectful code — translated directly into a system that is easier to reason about, easier to extend, and harder to break accidentally.
+
+The four-day timeline would not have been possible without AI tooling. But the reliability of the result is not down to any single factor — it is the sum of the cyborg discipline, the architectural decisions made along the way, and the soundness that Haskell enforces by default.
 
 ## Next Steps
 

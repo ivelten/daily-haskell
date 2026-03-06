@@ -152,7 +152,9 @@ Acredito fortemente que este é o fluxo de trabalho ideal para o momento atual: 
 
 O que faz esse modelo funcionar é a disciplina que ele exige de *você*. Você não pode desligar. Precisa entender cada linha antes de fazer o commit. Precisa saber por que uma decisão de design foi tomada, porque será você quem a defenderá, estenderá e depurará daqui a seis meses. A IA dá a você alavancagem. A expertise é o que torna essa alavancagem segura.
 
-A terceira lição é sobre Haskell especificamente. A disciplina que a linguagem impõe — a explicitude, os tipos, a separação entre código puro e com efeitos — se traduziu diretamente em um sistema mais fácil de raciocinar, mais fácil de estender e mais difícil de quebrar acidentalmente. O prazo de quatro dias não teria sido possível sem as ferramentas de IA. Mas a confiabilidade do resultado é produto da linguagem.
+A terceira lição é sobre Haskell especificamente. A disciplina que a linguagem impõe — a explicitude, os tipos, a separação entre código puro e com efeitos — se traduziu diretamente em um sistema mais fácil de raciocinar, mais fácil de estender e mais difícil de quebrar acidentalmente.
+
+O prazo de quatro dias não teria sido possível sem as ferramentas de IA. Mas a confiabilidade do resultado não é produto de nenhum fator isolado — é a soma da disciplina do modelo cyborg, das decisões arquiteturais tomadas ao longo do caminho, e da solidez que Haskell impõe por padrão.
 
 ## Próximos Passos
 
