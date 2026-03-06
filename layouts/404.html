@@ -18,10 +18,39 @@
 </section>
 
 <script>
-  if (window.location.pathname.indexOf('/pt-br/') === 0 ||
-      window.location.pathname.indexOf('/daily-haskell/pt-br/') === 0) {
+  (function () {
+    var path = window.location.pathname;
+    var base = "{{ .Site.BaseURL }}";
+    var isPtBr = path.indexOf('/pt-br/') !== -1;
+    if (!isPtBr) return;
+
     document.getElementById('msg-en').style.display = 'none';
     document.getElementById('msg-pt').style.display = '';
-  }
+
+    var navTitle = document.querySelector('a.navigation-title');
+    if (navTitle) {
+      navTitle.textContent = 'Haskell no Dia a Dia';
+      navTitle.href = base + 'pt-br/';
+    }
+
+    var navLinks = document.querySelectorAll('a.navigation-link');
+    navLinks.forEach(function (link) {
+      var text = link.textContent.trim();
+      if (text === 'About') {
+        link.textContent = 'Sobre';
+        link.href = base + 'pt-br/about/';
+      } else if (text === 'Blog') {
+        link.href = base + 'pt-br/posts/';
+      } else if (text === 'Tags') {
+        link.href = base + 'pt-br/tags/';
+      }
+    });
+
+    var footer = document.querySelector('footer.footer');
+    if (footer) {
+      footer.innerHTML = footer.innerHTML.replace('Powered by', 'Promovido por');
+    }
+  })();
 </script>
 {{ end }}
+
