@@ -288,11 +288,11 @@ This demonstrates how Tagless Final allows us to "plug in" different capabilitie
 
 While these patterns offer immense power, they come with trade-offs and potential pitfalls:
 
-*   **Learning Curve:** Tagless Final and Free Monads have a steeper learning curve than basic monads. Understanding the abstractions requires dedicated effort.
-*   **Boilerplate:** For simple applications, defining extensive effect systems or DSLs might feel like overkill, leading to more boilerplate than necessary.
-*   **Performance:** While Haskell compilers are highly optimizing, deeply nested Free Monads or complex interpreter chains can sometimes introduce performance overhead. Careful profiling is essential.
-*   **Type System Complexity:** Over-reliance on highly abstract type classes or GADTs can lead to very complex type signatures that are difficult for developers (even experienced ones) to decipher.
-*   **Interoperability:** Integrating with existing `IO`-bound libraries or external systems sometimes requires careful bridging between pure DSLs and the `IO` world.
+* **Learning Curve:** Tagless Final and Free Monads have a steeper learning curve than basic monads. Understanding the abstractions requires dedicated effort.
+* **Boilerplate:** For simple applications, defining extensive effect systems or DSLs might feel like overkill, leading to more boilerplate than necessary.
+* **Performance:** While Haskell compilers are highly optimizing, deeply nested Free Monads or complex interpreter chains can sometimes introduce performance overhead. Careful profiling is essential.
+* **Type System Complexity:** Over-reliance on highly abstract type classes or GADTs can lead to very complex type signatures that are difficult for developers (even experienced ones) to decipher.
+* **Interoperability:** Integrating with existing `IO`-bound libraries or external systems sometimes requires careful bridging between pure DSLs and the `IO` world.
 
 The "Software Design in Haskell" repository provides guidance on these trade-offs, emphasizing pragmatism. It's not about blindly applying every advanced pattern but about choosing the right tool for the job. For example, for small, self-contained utilities, direct `IO` might be perfectly acceptable. For larger, complex applications with evolving requirements, investing in a robust effect system or DSL is often a wise decision.
 
@@ -300,4 +300,4 @@ The repository advocates for a structured, principled approach to Haskell develo
 
 ## Further Reading
 
-*   [Software Design in Haskell](https://github.com/graninas/Software-Design-in-Haskell)
+* [Software Design in Haskell](https://github.com/graninas/Software-Design-in-Haskell)

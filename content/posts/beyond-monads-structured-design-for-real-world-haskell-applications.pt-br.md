@@ -288,11 +288,11 @@ Isso demonstra como Tagless Final permite "conectar" diferentes capacidades (log
 
 Embora esses padrões ofereçam imenso poder, eles vêm com trade-offs e armadilhas potenciais:
 
-*   **Curva de Aprendizado:** Tagless Final e Free Monads têm uma curva de aprendizado mais acentuada do que monads básicos. Entender as abstrações requer esforço dedicado.
-*   **Boilerplate:** Para aplicações simples, definir sistemas de efeitos extensos ou DSLs pode parecer exagero, levando a mais boilerplate do que o necessário.
-*   **Performance:** Embora os compiladores Haskell sejam altamente otimizadores, Free Monads profundamente aninhados ou cadeias de interpretadores complexas podem, às vezes, introduzir overhead de performance. Profiling cuidadoso é essencial.
-*   **Complexidade do Sistema de Tipos:** O uso excessivo de type classes altamente abstratas ou GADTs pode levar a assinaturas de tipo muito complexas que são difíceis para os desenvolvedores (mesmo os experientes) decifrarem.
-*   **Interoperabilidade:** Integrar com bibliotecas existentes baseadas em `IO` ou sistemas externos às vezes requer uma ponte cuidadosa entre DSLs puras e o mundo `IO`.
+* **Curva de Aprendizado:** Tagless Final e Free Monads têm uma curva de aprendizado mais acentuada do que monads básicos. Entender as abstrações requer esforço dedicado.
+* **Boilerplate:** Para aplicações simples, definir sistemas de efeitos extensos ou DSLs pode parecer exagero, levando a mais boilerplate do que o necessário.
+* **Performance:** Embora os compiladores Haskell sejam altamente otimizadores, Free Monads profundamente aninhados ou cadeias de interpretadores complexas podem, às vezes, introduzir overhead de performance. Profiling cuidadoso é essencial.
+* **Complexidade do Sistema de Tipos:** O uso excessivo de type classes altamente abstratas ou GADTs pode levar a assinaturas de tipo muito complexas que são difíceis para os desenvolvedores (mesmo os experientes) decifrarem.
+* **Interoperabilidade:** Integrar com bibliotecas existentes baseadas em `IO` ou sistemas externos às vezes requer uma ponte cuidadosa entre DSLs puras e o mundo `IO`.
 
 O repositório "Software Design in Haskell" fornece orientação sobre esses trade-offs, enfatizando o pragmatismo. Não se trata de aplicar cegamente todo padrão avançado, mas de escolher a ferramenta certa para o trabalho. Por exemplo, para utilitários pequenos e autônomos, `IO` direto pode ser perfeitamente aceitável. Para aplicações maiores e complexas com requisitos em evolução, investir em um sistema de efeitos robusto ou DSL é frequentemente uma decisão sábia.
 
@@ -300,4 +300,4 @@ O repositório defende uma abordagem estruturada e principiada para o desenvolvi
 
 ## Further Reading
 
-*   [Software Design in Haskell](https://github.com/graninas/Software-Design-in-Haskell)
+* [Software Design in Haskell](https://github.com/graninas/Software-Design-in-Haskell)
