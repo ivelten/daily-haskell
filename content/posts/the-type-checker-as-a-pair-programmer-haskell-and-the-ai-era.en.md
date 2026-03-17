@@ -66,7 +66,7 @@ If you are a senior engineer managing a team, the choice of Haskell in an AI-ass
 
 Ultimately, Haskell is the perfect language for the "AI Agent" era precisely because it is the most difficult language to "cheat." When the AI writes a function, it doesn't just need to look right; it needs to be type-correct. By treating the compiler as the primary code reviewer, you turn the AI into a powerful tool for generating robust, production-grade systems.
 
-## Further Reading
+## Leitura Adicional
 
 - [Type-Driven Development with Idris and Haskell](https://www.manning.com/books/type-driven-development-with-idris)
 - [The impact of language choice on AI code generation](https://dev.to/mame/which-programming-language-is-best-for-claude-code-508a)

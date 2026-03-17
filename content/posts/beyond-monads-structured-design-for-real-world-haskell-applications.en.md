@@ -298,6 +298,6 @@ The "Software Design in Haskell" repository provides guidance on these trade-off
 
 The repository advocates for a structured, principled approach to Haskell development, moving beyond the basic building blocks to construct applications that are resilient, testable, and maintainable. It's a vital resource for anyone looking to build real-world Haskell systems with confidence.
 
-## Further Reading
+## Leitura Adicional
 
 * [Software Design in Haskell](https://github.com/graninas/Software-Design-in-Haskell)

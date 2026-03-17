@@ -298,6 +298,6 @@ O repositório "Software Design in Haskell" fornece orientação sobre esses tra
 
 O repositório defende uma abordagem estruturada e principiada para o desenvolvimento Haskell, indo além dos blocos de construção básicos para construir aplicações que são resilientes, testáveis e manteníeis. É um recurso vital para qualquer pessoa que busca construir sistemas Haskell do mundo real com confiança.
 
-## Further Reading
+## Leitura Adicional
 
 * [Software Design in Haskell](https://github.com/graninas/Software-Design-in-Haskell)

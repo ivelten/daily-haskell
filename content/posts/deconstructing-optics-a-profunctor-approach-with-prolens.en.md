@@ -62,7 +62,7 @@ One edge case to watch for is "lens fragmentation." If you create too many granu
 
 If your project requires high-performance optics with minimal compile-time overhead, `prolens` is an excellent choice. It provides the necessary primitives to build what you need without the cognitive load of a 50,000-line dependency.
 
-## Further Reading
+## Leitura Adicional
 
 - [Kowainik/prolens GitHub Repository](https://github.com/kowainik/prolens)
 - [Profunctor Optics: The Essence of Lenses](https://www.cs.ru.nl/~jmh/papers/profunctor-optics.pdf)

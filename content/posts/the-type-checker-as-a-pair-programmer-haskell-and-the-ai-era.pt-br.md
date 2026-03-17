@@ -66,7 +66,7 @@ Se você é um engenheiro sênior gerenciando uma equipe, a escolha de Haskell e
 
 Em última análise, Haskell é a linguagem perfeita para a era dos "Agentes de IA" justamente porque é a linguagem mais difícil de "trapacear". Quando a IA escreve uma função, ela não precisa apenas parecer correta; ela precisa ser correta em termos de tipos. Ao tratar o compilador como o revisor de código principal, você transforma a IA em uma ferramenta poderosa para gerar sistemas robustos e de nível de produção.
 
-## Further Reading
+## Leitura Adicional
 
 - [Type-Driven Development with Idris and Haskell](https://www.manning.com/books/type-driven-development-with-idris)
 - [The impact of language choice on AI code generation](https://dev.to/mame/which-programming-language-is-best-for-claude-code-508a)

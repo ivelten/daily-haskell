@@ -64,6 +64,6 @@ The use of `foldl'` (the strict version of `foldl`) is a standard idiom to avoid
 
 The repository of companies using Haskell in production demonstrates that we no longer need to build our tooling from scratch. Libraries like `servant` for type-safe web APIs and `persistent` for database interaction provide the same level of productivity as Entity Framework or ASP.NET Core, but with significantly higher safety guarantees.
 
-## Further Reading
+## Leitura Adicional
 
 - [Haskell in production? Yes!](https://github.com/denisshevchenko/haskell-in-production)

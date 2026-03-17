@@ -62,7 +62,7 @@ O `prolens` não é um substituto imediato para a biblioteca `lens` completa. El
 
 Se o seu projeto exige optics de alto desempenho com o mínimo de sobrecarga em tempo de compilação, o `prolens` é uma excelente escolha. Ele fornece os primitivos necessários para construir exatamente o que você precisa, sem a carga cognitiva de uma dependência de 50.000 linhas.
 
-## Further Reading
+## Leitura Adicional
 
 - [Repositório GitHub Kowainik/prolens](https://github.com/kowainik/prolens)
 - [Profunctor Optics: The Essence of Lenses](https://www.cs.ru.nl/~jmh/papers/profunctor-optics.pdf)
